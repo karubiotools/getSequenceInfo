@@ -1608,7 +1608,7 @@ sub download_summaries {
 					download_file($ftpServor, $assemblySummaryLink);
 					$fileName = $database . "_" . $summaryKingdom . "_" . "assembly_summary.txt";
 					rename $assemblySummary, $fileName;
-					print "replace file\n";
+					print "replace assembly_summary file\n";
 				}
 			}
 		}
