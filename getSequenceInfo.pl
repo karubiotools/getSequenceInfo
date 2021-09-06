@@ -942,30 +942,30 @@ sub get_fasta_and_report_sequence_ena_other {
 	my $output;
 	
 	$url = "https://www.ebi.ac.uk/ena/data/view/$sequenceID&display=fasta";
-	if($actualOS eq "MSWin32"){
+	#if($actualOS eq "MSWin32"){
 		$output = get($url);
 		$fasta_file = $sequenceID . ".fasta";
 		open(FILE, ">", $fasta_file) or die("could not open $!");
 		print FILE $output;
 		close(FILE) or die "could not close $!";
-	}
-	else{
-		system("wget $url");
-	}
+	#}
+	#else{
+	#	system("wget $url");
+	#}
 	
 	$output = "";
 	
 	$url = "https://www.ebi.ac.uk/ena/data/view/$sequenceID&display=text&header=true";
-	if($actualOS eq "MSWin32"){
+	#if($actualOS eq "MSWin32"){
 		$output = get($url);  # replace by wget????
 		$report_file = $sequenceID . "_report.txt";
 		open(FILE, ">>", $report_file) or die "could not open: $!";
 		print FILE $output;
 		close(FILE) or die "could not close $!";
-	}
-	else{
-		system("wget $url");
-	}
+	#}
+	#else{
+	#	system("wget $url");
+	#}
 	
 	return ($fasta_file, $report_file);
 }
@@ -1338,7 +1338,7 @@ sub gc_percent {
 sub download_file {
 	my($servor, $file) = @_;
 	
-	if($actualOS eq "MSWin32"){
+	#if($actualOS eq "MSWin32"){
 		my $ftp = Net::FTP->new($servor, Debug => 0)
 		or die "Cannot connect to $servor";
 		
@@ -1348,10 +1348,10 @@ sub download_file {
 		$ftp->get($file) or die "get failed ", $ftp->message;
 		
 		$ftp->quit;
-	}
-	else{
-		system("wget $file");
-	}
+	#}
+	#else{
+	#	system("wget $file");
+	#}
 }
 #------------------------------------------------------------------------------
 # obtain file directory
@@ -1418,12 +1418,12 @@ sub download_ena_fastq {
 		mkdir $fastqRep;
 		
 		foreach my $fastqFile (@fastqFiles) {
-			if($actualOS eq "MSWin32"){
+			#if($actualOS eq "MSWin32"){
 				$ftp->get($fastqFile) or die "get failed ", $ftp->message;
-			}
-			else{
-				system("wget $fastqFile");
-			}
+			#}
+			#else{
+			#	system("wget $fastqFile");
+			#}
 			
 			#my @baseAndExt = split /\./, $fastqFile;
 			#my $unzipFastq = $baseAndExt[0] . ".fastq";
