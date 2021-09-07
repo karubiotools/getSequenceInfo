@@ -1303,7 +1303,8 @@ sub shift_data_variance {
 # nucle score
 sub nucle_score {
 	my ($variance, $gcPercent, $atgcRatio, $length) = @_;
-	return log2(($variance * $gcPercent * $atgcRatio) / sqrt($length));
+	#return log2(($variance * $gcPercent * $atgcRatio) / sqrt($length));
+	return log2(($variance * $gcPercent * $atgcRatio ** (3)) / sqrt($length));
 }
 #------------------------------------------------------------------------------
 sub log2 {
