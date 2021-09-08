@@ -309,7 +309,7 @@ sub help_user_advance {
 	Usage:
 	  perl $0 [options]
 	  examples: 
-	     perl $0 -k bacteria -s "Helicobacter pylori" -l "Complete Genome" -date 2019-06-01 
+	     perl $0 -k bacteria -s "Helicobacter pylori" -le "Complete Genome" -date 2019-06-01 
 	     perl $0 -k viruses -n 5 -date 2019-06-01
 	     perl $0 -k "bacteria" -taxid 9,24 -n 10 -c plasmid -dir genbank -o Results
 	     perl $0 -ena BN000065
@@ -345,7 +345,7 @@ sub help_user_advance {
 		-taxid [XXX]			allows to indicate a specific taxid (must be combined with -k option)
 		-assembly_or_project [XXX]	allows to indicate a specific assembly accession or bioproject (must be combined with -k option)
 		-date [XXX]			indicates the release date (with format yyyy-mm-dd) from which sequence information are available
-		-l or -level [XXX]		allows to select a specific assembly level (e.g. "Complete Genome")
+		-le or -level [XXX]		allows to select a specific assembly level (e.g. "Complete Genome")
 		-o or -output [XXX]		allows users to name the output result folder
 		-n or -number [XXX]		allows to limit the total number of assemblies to be downloaded
 		-c or -components [XXX]		allows to select specific components of the assembly (e.g. plasmid, chromosome, ...)
