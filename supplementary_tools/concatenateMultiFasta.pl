@@ -12,7 +12,7 @@ use strict;
 my @listFastaFiles = @ARGV;
 
 foreach my $multiFasta ( @listFastaFiles ) {
-        my $outFasta = 'concatenate_'.$multiFasta ;
+        my $outFasta = 'concatenated_'.$multiFasta ;
         open(FILE,"<$multiFasta") || die ("Error opening $multiFasta $!");
         open(OUT, '>', $outFasta) or die $!;
         print OUT ">concatenation $multiFasta\n";
