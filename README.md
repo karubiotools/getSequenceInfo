@@ -96,3 +96,12 @@ Help message:
 		-fastq [XXX]			allows to download FASTQ sequences from ENA given a run accession (https://ena-docs.readthedocs.io/en/latest/faq/archive-generated-files.html)
 		-log				allows to create a log file
 ```
+## Singularity container
+This tool can also be used from a [singularity](https://sylabs.io/singularity/) container. Make sure singularity is installed on your machine, then run the following commands:
+```bash
+sudo singularity build getSequenceInfo.simg getSequenceInfo.def
+```
+Example of use:
+```bash
+singularity exec -B $PWD getSequenceInfo.simg perl /usr/local/getSequenceInfo.pl -h
+```
