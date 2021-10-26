@@ -1,0 +1,30 @@
+Bootstrap: docker
+From: ubuntu:latest
+
+%environment
+    export LISTEN_PORT=12345
+    export LC_ALL=C
+    export PATH=/usr/local/getSequenceInfo/bin/Linux/:$PATH
+
+%post
+    apt-get update -qq && apt-get install -y sudo make wget unzip zlib1g-dev cpanminus gcc bzip2 libncurses5-dev libncursesw5-dev libssl-dev r-base git libxml-libxml-perl libgd-gd2-perl bioperl bwa smalt tabix samtoo
+ls locales
+    apt-get install -y x11-xserver-utils net-tools vsftpd ftp ncftp filezilla libx11-dev
+    apt-get install -y tcl8.6 tk8.6 tcl8.6-dev tk8.6-dev tcl8.6-doc tk8.6-doc
+    cpanm IPC::System::Simple DateTime::Locale DateTime
+    cpanm Dist::Zilla::Plugin::AutoPrereqs Dist::Zilla::Plugin::Encoding Dist::Zilla::Plugin::FileFinder::ByName Dist::Zilla::Plugin::MetaResources Dist::Zilla::Plugin::PkgVersion Dist::Zilla::Plugin::PodWeaver Dist:
+:Zilla::Plugin::RequiresExternal Dist::Zilla::Plugin::RunExtraTests Dist::Zilla::PluginBundle::Git Dist::Zilla::PluginBundle::Starter
+    cpanm --force XML::DOM::XPath
+    cpanm --force Bio::Seq Bio::SeqIO
+    cpanm Date::Calc LWP::Simple Data::Dumper IO::Uncompress::Gunzip IO::File File::Log Getopt::Long Net::FTP
+    cd /usr/local
+    git clone https://github.com/karubiotools/getSequenceInfo.git
+
+#%test
+    #cd getSequenceInfo/
+    #chmod 777 *
+    #perl getSequenceInfo/getSequenceInfo.pl -version
+
+%help
+    This is a Singularity container for getSequenceInfo tool available at:
+    https://github.com/karubiotools/getSequenceInfo
