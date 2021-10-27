@@ -105,3 +105,5 @@ Example of use:
 ```bash
 singularity exec -B $PWD getSequenceInfo.simg perl /usr/local/getSequenceInfo.pl -h
 ```
+## Galaxy
+Note that the tool is partly available through the [Galaxy KaruBioNet platform](http://sasc3i.univ-antilles.fr:8080)
