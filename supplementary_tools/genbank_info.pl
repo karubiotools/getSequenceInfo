@@ -33,12 +33,18 @@ print SUM "File_Name\tCountry\tPUBMED_ID\tHost\tIsolation_Source\tGenes_Nb\tShap
 #FASTA/Q files
 if(@ARGV){
   for my $arg (@ARGV){
-    if ($arg =~ m/.gbff/ or $arg =~ m/.gbff.gz/ ){  #
+    #if ($arg =~ m/.gbff/ or $arg =~ m/.gbff.gz/ ){  #
+        if ($arg =~ m/.gz/ ){
+          $command = "zcat $arg";
+        }
+        else{
+          $command = "cat $arg";
+        }
         print "GenBank Full format file: $arg\n";
-        my $genbankFile = $arg;
-                my @array = split(/\./, $genbankFile); #$array[0];
+        #my $genbankFile = $arg;
+                my @array = split(/\./, $arg); #$array[0];
 
-                open GBFF, "zcat $genbankFile |";
+                open GBFF, "$command |";
                 while (<GBFF>) {
 
                         chomp;
@@ -55,9 +61,7 @@ if(@ARGV){
                 print SUM "$array[0]\t$country\t$pubmedId\t$host\t$isoSource\t$geneNumber\t$shape\n";
                 print "$array[0]\t$country\t$pubmedId\t$host\t$isoSource\t$geneNumber\t$shape\n";
 
-        }
-
-
+    #}
   }
 }
 
