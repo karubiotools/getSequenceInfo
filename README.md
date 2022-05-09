@@ -54,7 +54,7 @@ Help message:
 	  examples: 
 	     perl getSequenceInfo.pl -k bacteria -s "Helicobacter pylori" -le "Complete Genome" -date 2019-06-01 
 	     perl getSequenceInfo.pl -k viruses -n 5 -date 2019-06-01
-	     perl getSequenceInfo.pl -k "bacteria" -taxid 9,24 -n 10 -c plasmid -dir genbank -o Results
+	     perl getSequenceInfo.pl -k bacteria -taxid 9,24 -n 10 -c plasmid -dir genbank -o Results
 	     perl getSequenceInfo.pl -ena BN000065
 	     perl getSequenceInfo.pl -fastq ERR818002
 	     perl getSequenceInfo.pl -fastq ERR818002,ERR818004
