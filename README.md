@@ -96,6 +96,30 @@ Help message:
 		-fastq [XXX]			allows to download FASTQ sequences from ENA given a run accession (https://ena-docs.readthedocs.io/en/latest/faq/archive-generated-files.html)
 		-log				allows to create a log file
 ```
+
+## Some examples of use are the following:
+```bash
+perl getSequenceInfo.pl -fastq ERR818002,ERR818004
+```
+
+```bash
+perl getSequenceInfo.pl -k bacteria -s "Helicobacter pylori" -le "Complete Genome" -date 2019-06-01
+```
+
+## Examples regarding supplementary tools:
+```bash
+perl supplementary_tools/SRArunInfo.pl SRR7693877,SRR9850824,SRR9850830
+```
+```bash
+perl supplementary_tools/nucleScore.pl *.fasta
+```
+```bash
+perl supplementary_tools/genbank_info.pl *.gbff.gz
+```
+```bash
+perl supplementary_tools/concatenateMultiFasta.pl <multiFasta_file.fasta>
+```
+
 ## Singularity container
 This tool can also be used from a [singularity](https://sylabs.io/singularity/) container. Make sure singularity is installed on your machine, then run the following commands:
 ```bash
