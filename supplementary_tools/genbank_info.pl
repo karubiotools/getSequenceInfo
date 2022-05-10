@@ -12,6 +12,7 @@ my $host = "";
 my $isoSource = "";
 my $geneNumber = "";
 my $shape = "";
+my $date = "";
 
 my $summary = "summary_GenBank_info.xls";
 
@@ -28,7 +29,7 @@ print "##################################################################\n";
 #.gbff.gz
 #Entete summary
 open(SUM, ">", $summary) or die "Error writing file $!: ";
-print SUM "File_Name\tCountry\tPUBMED_ID\tHost\tIsolation_Source\tGenes_Nb\tShape\n";
+print SUM "File_Name\tCountry\tPUBMED_ID\tHost\tIsolation_Source\tGenes_Nb\tShape\tDate\n";
 
 #FASTA/Q files
 if(@ARGV){
@@ -43,8 +44,13 @@ if(@ARGV){
         print "GenBank Full format file: $arg\n";
         #my $genbankFile = $arg;
                 my @array = split(/\./, $arg); #$array[0];
-
+                
                 open GBFF, "$command |";
+
+                my $first_line = <GBFF>;
+                my @tokens = split(/\s+/, $first_line);
+                $date = $tokens[$#tokens];
+                
                 while (<GBFF>) {
 
                         chomp;
@@ -58,8 +64,8 @@ if(@ARGV){
                 }
                 close(GBFF) or die "error close file $!:";
 
-                print SUM "$array[0]\t$country\t$pubmedId\t$host\t$isoSource\t$geneNumber\t$shape\n";
-                print "$array[0]\t$country\t$pubmedId\t$host\t$isoSource\t$geneNumber\t$shape\n";
+                print SUM "$array[0]\t$country\t$pubmedId\t$host\t$isoSource\t$geneNumber\t$shape\t$date\n";
+                print "$array[0]\t$country\t$pubmedId\t$host\t$isoSource\t$geneNumber\t$shape\t$date\n";
 
     #}
   }
