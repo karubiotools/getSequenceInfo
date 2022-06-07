@@ -546,7 +546,7 @@ sub get_assembly_summary_species {
 			print "perl $0 @ARGV\n";
 			print "##################################################################\n\n";
 			
-			if ($actualOS =~ /unix/i) { unlink glob "*.dmp *.gz"  or die "for file *.dmp *.gz $!:"; }
+			if ($actualOS =~ /unix/i) { unlink glob "*.dmp *.gz"  or die "An error occurred while trying to remove the *.dmp and *.gz files $!:"; }
 			
 			if (empty_folder($kingdomRep)) { rmdir $kingdomRep or die "fail remove directory $!:"; }
 			rmdir $repositoryAssembly or die "failed to remove directory $!:";
@@ -677,7 +677,7 @@ sub get_assembly_summary_species {
 			}
 			
 			# if ($actualOS =~ /unix/i) { unlink glob "*.dmp"  or die "for file *.dmp $!:"; }
-			unlink glob "*.gz sequence.txt"  or die "$!: for file *.gz sequence.txt";
+			unlink glob "*.gz sequence.txt"  or die "$!: An error occurred while trying to remove the *.gz files";
 		}
 	} 
 }
@@ -1543,7 +1543,7 @@ sub get_assembly_or_project {
 		move($repositoryFNA, $repositorySequence . $fldSep. $repositoryFNA) or die "error move file $!:";
 		move($repositoryGenbank, $repositorySequence . $fldSep. $repositoryGenbank) or die "error move file $!:";
 		move($repositoryReport, $repositorySequence . $fldSep. $repositoryReport) or die "error move file $!:";
-		unlink glob "*.gz"  or die "for file *.gz $!:";
+		unlink glob "*.gz"  or die "An error occurred while trying to remove the *.gz files $!:";
 		
 		if ($log) {
 			print LOG "...move GenBank/RefSeq sequence files to dedicated folders\n";
