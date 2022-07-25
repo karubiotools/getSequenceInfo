@@ -3,15 +3,15 @@
 echo 'Welcome to getSequenceInfo Unix installer !';
 echo 'cpan must first be installed on your computer';
 echo '----------------------------------------------------------';
-sudo cpan -i Date::Calc;
-sudo cpan -i Bio::SeqIO;
-sudo cpan -i LWP::Simple;
-sudo cpan -i Data::Dumper;
-sudo cpan -i IO::Uncompress::Gunzip;
-sudo cpan -i IO::File;
-sudo cpan -i File::Log;
-sudo cpan -i Getopt::Long;
-sudo cpan -i Net::FTP;
-sudo cpan -i Tk;
+cpan -i Date::Calc;
+cpan -i Bio::SeqIO;
+cpan -i LWP::Simple;
+cpan -i Data::Dumper;
+cpan -i IO::Uncompress::Gunzip;
+cpan -i IO::File;
+cpan -i File::Log;
+cpan -i Getopt::Long;
+cpan -i Net::FTP;
+cpan -i Tk;
 echo 'end of install';
 
