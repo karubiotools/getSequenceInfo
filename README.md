@@ -18,7 +18,7 @@ On CentOS, RedHat, or Fedora, this is the package libX11-devel.
 MacOS users may need Xcode/XQuartz and Fink programs.
 ## Linux or MacOS (Unix)
 ```bash
-git clone https://github.com/dcouvin/getSequenceInfo.git
+git clone https://github.com/karubiotools/getSequenceInfo.git
 cd getSequenceInfo/
 bash install/installer_Unix.sh
 ```
