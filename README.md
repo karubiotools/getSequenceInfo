@@ -133,4 +133,6 @@ singularity exec -B $PWD getSequenceInfo.simg perl /usr/local/getSequenceInfo.pl
 Note that the tool is partly available through the [Galaxy KaruBioNet platform](http://calamar.univ-ag.fr/c3i/galaxy_karubionet.html)
 
 ## Citation
+If you use grabseqs in your work, please cite:
+
 Moco, V., Cazenave, D., Garnier, M. et al. getSequenceInfo: a suite of tools allowing to get genome sequence information from public repositories. BMC Bioinformatics 23, 268 (2022). [https://doi.org/10.1186/s12859-022-04809-5](https://doi.org/10.1186/s12859-022-04809-5) [PMID: 35804320](https://pubmed.ncbi.nlm.nih.gov/35804320/)
