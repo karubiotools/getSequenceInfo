@@ -8,8 +8,12 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqUtils import GC, gc_fraction
 
+arguments = sys.argv[1:]
 
-for argv in sys.argv[1:]:
+print("File\tA percent\tT percent\tC percent\tG percent\tGC percent\tAT/GC ratio\tNucleScore\tATG\tTGA\tTAG\tTAA\tGenome size")
+
+for argv in arguments:
+    #print("File: "+argv+"\n\n")
     file = argv
     globalSeq = ''
     fasta_sequences = SeqIO.parse(open(file), 'fasta')
@@ -28,16 +32,16 @@ for argv in sys.argv[1:]:
     n = my_dna.count("N")
     length = len(globalSeq)
 
-    aPercent = (ade / length) * 100
-    tPercent = (thy / length) * 100
-    gPercent = (gua / length) * 100
-    cPercent = (cyt / length) * 100
-    nPercent = (n / length) * 100
+    aPercent = (ade/length)*100
+    tPercent = (thy/length)*100
+    gPercent = (gua/length)*100
+    cPercent = (cyt/length)*100
+    nPercent = (n/length) * 100
 
     atgcRatio = (ade + thy) / (gua + cyt)
     percentList = (aPercent, tPercent, gPercent, cPercent, nPercent)
-    variance = variance(percentList)
-    nucleScore = math.log2((variance * gcpercent * atgcRatio ** 3) / math.sqrt(length))
+    variance_value = variance(percentList)
+    nucleScore = math.log2((variance_value * gcpercent * atgcRatio ** 3) / math.sqrt(length))
 
     # act = my_dna.find("ACT")
 
@@ -49,9 +53,6 @@ for argv in sys.argv[1:]:
     label = basename(file)
 
     # Summary file
-    print(
-        "file\tA Percent\tT Percent\tC Percent\tG Percent\tGC percent\tAT/GC Ratio\tnucleScore\tATG\tTGA\tTAG"
-        "\tTAA\t$Genome size\n" + label + "\t" + str(
+    print(label + "\t" + str(
             aPercent) + "\t" + str(tPercent) + "\t" + str(cPercent) + "\t" + str(gPercent) + "\t" + str(
-            gcpercent) + "\t" + str(atgcRatio) + "\t" + str(
-            nucleScore) + "\t" + str(atg) + "\t" + str(tga) + "\t" + str(tag) + "\t" + str(taa) + "\t" + str(length))
+            gcpercent) + "\t" + str(atgcRatio) + "\t" + str(nucleScore) + "\t" + str(atg) + "\t" + str(tga) + "\t" + str(tag) + "\t" + str(taa) + "\t" + str(length))
