@@ -7,7 +7,7 @@ From: ubuntu:latest
     export PATH=/usr/local/getSequenceInfo/bin/Linux/:$PATH
 
 %post
-    apt-get update -qq && apt-get install -y sudo make wget unzip zlib1g-dev cpanminus gcc bzip2 libncurses5-dev libncursesw5-dev libssl-dev r-base git libxml-libxml-perl libgd-gd2-perl bioperl bwa smalt tabix samtoo
+    apt-get update -qq && apt-get install -y sudo make wget unzip zlib1g-dev cpanminus gcc bzip2 libncurses5-dev libncursesw5-dev libssl-dev r-base git libxml-libxml-perl libgd-gd2-perl bioperl bwa smalt tabix samtools
 ls locales
     apt-get install -y x11-xserver-utils net-tools vsftpd ftp ncftp filezilla libx11-dev
     apt-get install -y tcl8.6 tk8.6 tcl8.6-dev tk8.6-dev tcl8.6-doc tk8.6-doc
