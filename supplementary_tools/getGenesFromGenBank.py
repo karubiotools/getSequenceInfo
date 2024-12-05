@@ -151,5 +151,8 @@ if len(sys.argv) > 2:
         outfile2.close()
         #os.remove('./tmp_gb.gbff')
         #os.remove('./tmp_gb_merged.gbff')
-os.remove('./tmp_gb.gbff')
-os.remove('./tmp_gb_merged.gbff')
+
+if os.path.exists('./tmp_gb.gbff'):
+    os.remove('./tmp_gb.gbff')
+if os.path.exists('./tmp_gb_merged.gbff'):
+    os.remove('./tmp_gb_merged.gbff')
